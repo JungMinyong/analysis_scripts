@@ -1,0 +1,309 @@
+# Non-static variant: no forced geometric refinement; all other settings retained.
+# Isolated 1 pc AMR setup with cosmological Aeos model settings explicitly pinned.
+# Longer validation segment: 70 Myr, outputs every 1 Myr.
+# REVIEW DRAFT: ms.tex IC preparation; retain Aeos stellar feedback and 1 pc cap.
+# User requested a 70 Myr test with the existing artificial SN schedule left on.
+# This run does NOT implement the paper's first-star + 25 Myr driving cutoff.
+# 8.192 kpc box, 32^3 root (256 pc), eight AMR levels: finest cell width 1 pc.
+# No initial star particles; negligible analytic stellar mass avoids QROMB zero-integral failure.
+ProblemType = 31
+TopGridRank = 3
+TopGridDimensions = 32 32 32
+ComovingCoordinates = 0
+DomainLeftEdge = 0 0 0
+DomainRightEdge = 1 1 1
+LeftFaceBoundaryCondition = 1 1 1
+RightFaceBoundaryCondition = 1 1 1
+SelfGravity = 1
+TopGridGravityBoundary = 1
+UnigridTranspose = 0
+ParallelRootGridIO = 0
+ParallelParticleIO = 0
+MaximumRefinementLevel = 8
+MaximumGravityRefinementLevel = 8
+MaximumParticleRefinementLevel = 8
+RefineBy = 2
+GalaxySimulationRefineAtStart = 1
+GalaxySimulationDiskPosition = 0.5 0.5 0.5
+# Preserve the physical disk selection radius when doubling LengthUnits.
+GalaxySimulationDiskRadius = 0.245
+GalaxySimulationGasMass = 1.26e6
+GalaxySimulationDiskScaleHeightR = 0.00025
+GalaxySimulationDiskScaleHeightz = 0.0001
+GalaxySimulationTruncationRadius = 0.0019
+GalaxySimulationAngularMomentum = 0 0 1
+GalaxySimulationGasHalo = 0
+GalaxySimulationUniformDensity = 1e-29
+GalaxySimulationInitialTemperature = 1e4
+# GalaxySimulationUseMetallicityField is the legacy disk-membership tracer.
+# Only TestProblemUseMetallicityField initializes the actual metal fraction.
+GalaxySimulationUseMetallicityField = 0
+TestProblemUseMetallicityField = 1
+GalaxySimulationInitialDiskMetallicity = 4.3e-4
+GalaxySimulationInitialHaloMetallicity = 4.3e-4
+GalaxySimulationInitialStellarDist = 0
+GalaxySimulationRPSWind = 0
+DiskGravity = 1
+DiskGravityPosition = 0.5 0.5 0.5
+DiskGravityStellarDiskMass = 1e-10
+DiskGravityStellarDiskScaleHeightR = 0.00025
+DiskGravityStellarDiskScaleHeightz = 0.0001
+DiskGravityStellarBulgeMass = 0
+DiskGravityStellarBulgeR = 0.0001
+DiskGravityDarkMatterR = 0.00099
+DiskGravityDarkMatterDensity = 5.353606819e-24
+PointSourceGravity = 0
+DensityUnits = 1e-27
+LengthUnits = 2.527786048197728e22
+TimeUnits = 3.15576e13
+GravitationalConstant = 8.352838e-7
+InitialTime = 0
+StopTime = 70.0
+StopCycle = 100000
+StopCPUTime = 82800
+DataDumpName = DD
+dtDataDump = 1.0
+OutputTemperature = 1
+OutputCoolingTime = 1
+HydroMethod = 0
+DualEnergyFormalism = 1
+PPMDiffusionParameter = 0
+InterpolationMethod = 1
+FluxCorrection = 2
+RiemannSolver = 4
+ReconstructionMethod = 1
+CorrectParentBoundaryFlux = 1
+ConservativeInterpolation = 0
+CourantSafetyNumber = 0.4
+UseMinimumPressureSupport = 0
+use_grackle = 1
+RadiativeCooling = 1
+MultiSpecies = 2
+MultiMetals = 2
+MetalCooling = 1
+UVbackground = 1
+RadiationFieldRedshift = 0
+grackle_data_file = CloudyData_HM2012_highz_shielded.h5
+ThreeBodyRate = 4
+H2_self_shielding = 1
+self_shielding_method = 3
+use_volumetric_heating_rate = 1
+dust_chemistry = 1
+H2FormationOnDust = 2
+photoelectric_heating = 0
+use_isrf_field = 0
+interstellar_radiation_field = 0
+LWbackground_model = 0
+StarParticleCreation = 32768
+StarParticleFeedback = 32768
+IndividualStarRefineToLevel = 8
+MustRefineParticlesRefineToLevel = 8
+IndividualStarRefineToPhysicalRadius = 5
+IndividualStarRefineTime = 0.1
+StellarYieldsScaledSolarInitialAbundances = 0
+# ms.tex: 0.4 SN/Myr; this parameter is in SN/year.
+IndividualStarICSupernovaRate = 4e-7
+# Keep the rate constant throughout the 70 Myr segment: taper starts at half
+# this deliberately distant cutoff. This is NOT the first-star+25 Myr clock.
+# At that physical deadline, stop/restart and disable the type-3 time action.
+IndividualStarICSupernovaTime = 1000000
+IndividualStarICSupernovaFromFile = 0
+IndividualStarICSupernovaMethod = 1
+IndividualStarICSupernovaInjectionMethod = 1
+IndividualStarICSupernovaR = 0.00025
+IndividualStarICSupernovaZ = 0.0001
+IndividualStarICSupernovaPos = 0.5 0.5 0.5
+# First event at 2.5 Myr, then intervals of 2.5 million years.
+# Spatial sampling and first-event phase are implementation choices not
+# explicitly specified by ms.tex.
+TimeActionType[0] = 3
+TimeActionTime[0] = 2.5
+TimeActionParameter[0] = 2500000
+RadiativeTransferPeriodicBoundary = 0
+
+# Fixed physical coordinates: use explicit max level; do not dynamically
+# grow the cosmological physical-resolution cap due to roundoff at 1 pc.
+MaximumRefinementLevelPhysicalScale = -1
+StaticHierarchy = 0
+CellFlaggingMethod = 2 6
+# Root-cell volume grew by 8: divide this threshold by 8 to retain
+# the same approximately 100 Msun gas-mass refinement trigger.
+MinimumOverDensityForRefinement = 0.4035183151300021
+MinimumMassForRefinementLevelExponent = 0
+# ms.tex specifies eight cells per thermal Jeans length.
+RefineByJeansLengthSafetyFactor = 8
+MinimumEfficiency = 0.3
+SubgridSizeAutoAdjust = 1
+# No static refinement regions: initial and evolving grids use adaptive criteria.
+# Keep GalaxySimulationRefineAtStart = 1 to apply those criteria during IC creation.
+
+# Explicit Aeos model settings from h277/run1, including effective defaults.
+# RNG call counters and cosmological restart state are deliberately not copied.
+RadiativeTransferFLD = 0
+Gamma = 1.6667
+PotentialIterations = 6
+ParticleCourantSafetyNumber = 0.8
+RadiativeTransfer = 1
+RadiationRedshiftOn = 50
+RadiationRedshiftFullOn = 50
+StarFormationOncePerRootGridTimeStep = 0
+StarMakerOverDensityThreshold = 2500
+StarMakerUseOverDensityThreshold = 1
+StarMakerMaximumFractionCell = 0.5
+StarMakerSHDensityThreshold = 7e-26
+StarMakerTimeIndependentFormation = 0
+StarMakerMassEfficiency = 0.02
+StarMakerMinimumMass = 1e+09
+StarMakerMinimumDynamicalTime = 1e+06
+StarMakerExplosionDelayTime = -1
+StarMakerUseJeansMass = 0
+StarMakerTypeIaSNe = 0
+StarMakerTypeIISNeMetalField = 0
+StarMakerPlanetaryNebulae = 0
+PopIIIStarMass = 20
+PopIIIInitialMassFunction = 0
+PopIIIMassRange = 1.000000 300.000000
+PopIIIInitialMassFunctionSlope = -1.300000
+PopIIIHeliumIonization = 0
+PopIIIBlackHoles = 0
+PopIIIBHLuminosityEfficiency = 0.100000
+PopIIIOverDensityThreshold = 1e+06
+PopIIIH2CriticalFraction = 0.0005
+PopIIIMetalCriticalFraction = 1.295e-7
+PopIIISupernovaExplosions = 1
+PopIIISupernovaRadius = 1
+PopIIISupernovaUseColour = 0
+PopIIISupernovaMustRefine = 0
+PopIIISupernovaMustRefineResolution = 32
+PopIIIColorDensityThreshold = 1e+06
+PopIIIColorMass = 1e+06
+PopIIIUseHypernova = 1
+PopIIIOutputOnFeedback = 0
+PopIIIRadiationModel = 1
+UseFUVBackground = 1
+IndividualStarRefineForRadiation = 1
+IndividualStarRefineBufferSize = 4
+IndividualStarWDFixedLifetime = -1.000000
+IndividualStarCheckVelocityDiv = 1
+IndividualStarFeedbackOverlapSample = 16
+IndividualStarUseWindMixingModel = 0
+IndividualStarWindTemperature = 1e+06
+IndividualStarExtrapolateYields = 1
+IndividualStarSFGasMassThreshold = 100.0
+IndividualStarTemperatureThreshold = 500.0
+IndividualStarSecondaryOverDensityThreshold = 2500
+IndividualStarPopIIIFormation = 1
+IndividualStarPopIIISeparateYields = 0
+IndividualStarIMFUpperMassCutoff = 120.000
+IndividualStarIMFLowerMassCutoff = 0.080
+IndividualStarIMFMassFloor = 2.0
+IndividualStarVelocityDispersion = 1.0
+IndividualStarIMF = 2
+IndividualStarIgnoreNegativeMass = 0
+IndividualStarSalpeterSlope = -1.350000
+IndividualStarKroupaAlpha1 = -0.300000
+IndividualStarKroupaAlpha2 = -1.300000
+IndividualStarKroupaAlpha3 = -2.300000
+IndividualStarMassFraction = 0.5
+IndividualStarSNIIMassCutoff = 8.000000
+IndividualStarAGBThreshold = 8.000000
+IndividualStarTrackAGBMetalDensity = 1
+IndividualStarTrackSNMetalDensity = 1
+IndividualStarTrackWindDensity = 1
+IndividualStarRProcessModel = 1
+IndividualStarRProcessMinMass = 24.37
+IndividualStarRProcessMaxMass = 25.00
+IndividualStarAGBWindVelocity = 10.0
+IndividualStarWDMinimumMass = 1.700000
+IndividualStarWDMaximumMass = 8.000000
+IndividualStarSNIaMinimumMass = 3.000000
+IndividualStarSNIaMaximumMass = 8.000000
+IndividualStarDirectCollapseThreshold = 25.000000
+IndividualStarRadiationMinimumMass = 8.000000
+IndividualStarStellarWinds = 1
+IndividualStarMaximumStellarWindVelocity = 100.0
+IndividualStarSNIaModel = 2
+IndividualStarDTDSlope = 1.200000
+IndividualStarSNIaFraction = 0.1508
+IndividualStarFollowStellarYields = 1
+IndividualStarSurfaceAbundances = 1
+LimongiAbundances = 1
+IndividualStarOutputChemicalTags = 0
+IndividualStarSaveTablePositions = 0
+IndividualStarFeedbackStencilSize = -1
+IndividualStarFeedbackRadius = 1.5
+IndividualStarBlackBodyOnly = 0
+IndividualStarSupernovaEnergy = 1.000000e+00
+IndividualStarStellarWindVelocity = 100.0
+IndividualStarIRRadiation = 1
+IndividualStarLWRadiation = 1
+IndividualStarFUVHeating = 1
+IndividualStarOTRadiationMass = 8.000000
+IndividualStarIonizingRadiationMinimumMass = 8.000000
+IndividualStarCreationStencilSize = 3
+IndividualStarFUVTemperatureCutoff = 20000.000000
+IndividualStarTemperatureLimit = 1.0E8
+IndividualStarTemperatureLimitFactor = 100.0
+TypeIILowerMass = 10.0
+TypeIIUpperMass = 100.0
+PISNLowerMass = 500.0
+PISNUpperMass = 500.0
+PopIIIPISNEnergy = -1.0
+IndividualStarBlackBodyq0Factors = 0.13422 2.91754
+IndividualStarBlackBodyq1Factors = 0.00663647 5.10396
+IndividualStarBlackBodyq2Factors = 2.87337e-05 0.0368749
+IndividualStarBlackBodyIRFactors = 2.32886 2.388
+IndividualStarBlackBodyFUVFactors = 3.94039 2.6828
+IndividualStarBlackBodyLWFactors = 6.10441 2.785
+IndividualStarPrintSNStats = 1
+PhotoelectricHeatingDustModel = 1
+PhotoelectricHeatingDustModelEfficiency = 0.05
+StellarYieldsFilename = IndividualStarYields-Mix0.1.h5
+StellarYieldsNumberOfSpecies = 12
+StellarYieldsAtomicNumbers = 1 2 6 7 8 11 12 20 25 26 38 56
+StarMakerMinimumMassRamp = 0
+StarMakerMinimumMassRampStartTime = -99999
+StarMakerMinimumMassRampStartMass = -99999
+StarMakerMinimumMassRampEndTime = -99999
+StarMakerMinimumMassRampEndMass = -99999
+RadiativeTransferLoadBalance = 1
+RadiativeTransferRadiationPressure = 1
+RadiativeTransferRadiationPressureScale = 1.000000
+RadiativeTransferSourceRadius = 0
+RadiativeTransferPropagationSpeedFraction = 1
+RadiativeTransferPropagationDistance = 0.1
+RadiativeTransferCoupledRateSolver = 1
+RadiativeTransferOpticallyThinH2 = 1
+RadiativeTransferOpticallyThinFUV = 1
+RadiativeTransferOpticallyThinIR = 1
+RadiativeTransferOpticallyThinSourceClustering = 1
+RadiativeTransferSourceClusteringCount = 1000
+RadiativeTransferOpticallyThinH2CharLength = 0.25
+RadiativeTransferFLDCallOnLevel = 0
+RadiativeTransferSplitPhotonRadius = -99999.000000
+RadiativeTransferFluxBackgroundLimit = 0.05
+RadiativeTransferHubbleTimeFraction = 1
+RadiativeTransferRaysPerCell = 3.1
+RadiativeTransferTimestepVelocityLimit = 50
+RadiativeTransferTimestepVelocityLevel = -99999
+RadiativeTransferInitialHEALPixLevel = 1
+RadiativeTransferPhotonEscapeRadius = 0.000000
+RadiativeTransferInterpolateField = 0
+RadiativeTransferSourceClustering = 1
+RadiativeTransferPhotonMergeRadius = 10.0
+RadiativeTransferSourceBeamAngle = 30.000000
+RadiativeTransferHIIRestrictedTimestep = 0
+RadiativeTransferAdaptiveTimestep = 1
+RadiativeTransferHydrogenOnly = 0
+RadiativeTransferTraceSpectrum = 0
+RadiativeTransferDeletePhotonByPosition = 0
+RadiativeTransferDeletePhotonRadius = -99999.000000
+RadiativeTransferDeletePhotonSourceRadius = 100000000000000000000.000000
+RadiativeTransferH2ShieldType = 0
+RadiativeTransferUseH2Shielding = 0
+RadiativeTransferH2IIDiss = 1
+RadiativeTransferTraceSpectrumTable = spectrum_table.dat
+
+# Allow photons to cross this isolated domain rather than reusing the
+# cosmological box-fraction cutoff 0.13548 in a much smaller physical box.
+RadiativeTransferRayMaximumLength = 1.7320508
