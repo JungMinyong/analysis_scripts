@@ -1,0 +1,52 @@
+#!/bin/bash
+#PBS -N abyss-fresh-start
+#PBS -q workq
+#PBS -l nodes=node03:ppn=56
+#PBS -l walltime=24:00:00
+#PBS -j oe
+set -eo pipefail
+source /etc/profile
+module purge
+module load intel21/compiler-21 intel21/intelmpi-21 intel21/hdf5-1.10.5
+set -u
+base=/home/wispedia/AA/isolated/runs/run3-abyss-noFEWBODY
+root=/home/wispedia/AA/isolated
+[[ $(hostname -s) == node03 ]]
+[[ $(wc -l < "$PBS_NODEFILE") == 56 ]]
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/home/wispedia/local/grackle-aeos-intel/lib:${LD_LIBRARY_PATH:-}
+# No CUDA driver stub in the runtime library path.
+export ENZO_PROCESSOR_NUM=40
+export ENZO_CPU_NODE_NUM=0 ENZO_GPU_NODE_NUM=1
+export ENZO_OMP_THREADS=1 ABYSS_OMP_THREADS=16 TOTAL_CORES=56
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
+export I_MPI_FABRICS=shm I_MPI_HYDRA_BOOTSTRAP=fork I_MPI_PIN=0
+export OMP_PROC_BIND=close OMP_PLACES=cores
+ulimit -s unlimited
+work="$base"
+cd "$work"
+exec 9> .run.lock
+flock -n 9 || { echo "Another run holds .run.lock"; exit 1; }
+if compgen -G 'DD[0-9][0-9][0-9][0-9]' > /dev/null; then
+ echo "Existing snapshots found: refusing to overwrite a previous run."; exit 1
+fi
+test -r input.enzo
+cp "$base/build/source/src/enzo/enzo.exe" "$work/enzo.exe"
+chmod +x "$work/rank_launch.sh"
+for f in CloudyData_HM2012_highz_shielded.h5 IndividualStarYields-Mix0.1.h5 parsec_zams.in FUV_energy_rates.in IR_energy_rates.in LW_energy_rates.in q0_photon_rates.in q1_photon_rates.in q2_photon_rates.in; do
+ test -r "$root/$f"
+ if [[ ! -e "$work/$f" ]]; then ln -s "$root/$f" "$work/$f"; fi
+done
+cd "$work"
+nvidia-smi > gpu-info.txt
+ldd ./enzo.exe > libraries.txt
+if grep -q 'not found' libraries.txt; then cat libraries.txt; exit 1; fi
+sha256sum ./enzo.exe > executable.sha256
+unset ABYSS_R3_LEGACY_BOOTSTRAP ABYSS_R3_LEGACY_BOOTSTRAP_MANIFEST ABYSS_R3_LEGACY_BOOTSTRAP_SHA256 R2_LEGACY_RESEED ENZO_R3_LEGACY_IMPORT_DECL
+sha256sum input.enzo > input.sha256
+printf 'Enzo ranks=40; ABYSS ranks=1; ABYSS threads=16\n' > launch.txt
+set +e
+mpiexec -np 41 ./rank_launch.sh ./enzo.exe input.enzo > "stdout.${PBS_JOBID}" 2> "stderr.${PBS_JOBID}"
+rc=$?
+printf '%s\n' "$rc" > exit-code.txt
+exit "$rc"
