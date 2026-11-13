@@ -1,0 +1,68 @@
+{
+  "CorrectionVersion": "PopIII-CCSN-HW2010-v1",
+  "CorrectionDate": "2026-11-06",
+  "CorrectionScope": "Only PopIII CCSN rows, 10-100 Msun; other data preserved",
+  "CorrectionBaseSHA256": "31b72501574c6488eb65a49dbeb6d6a4b885192a43603a92a5d452c795801189",
+  "CorrectionSourceURL": "https://2sn.org/starfit/data/znuc.S4.star.deciso.y.stardb.gz",
+  "CorrectionSourceSHA256": "9d4530cce575bef0ca1fbf654ccff9d8a46caa892d1b9f5df74aa3a4808468e9",
+  "CorrectionReaderRevision": "21c59a9cc5ace231296ed7fd141b7d35e40e0962",
+  "CorrectionModel": "HW2010; S4 piston; 1.2 Bethe; mixing=0.1 He core fraction",
+  "CorrectionConversion": "element mass=sum(isotope molar abundance*A)*(M-remnant)",
+  "CorrectionTotal": "Mtot=M-remnant; Metal_Mtot=sum(elements with Z>2)",
+  "CorrectionMissingStableSpecies": "Tc and Pm set to zero: absent from source stable set",
+  "CorrectionGeneratorSHA256": "8a8467a4cf7db52dfb47d07220b26b8068f912a29085e02ba6d7c525fa1e6331",
+  "output": "IndividualStarYields-Mix0.1-PopIIICorrected.h5",
+  "output_sha256": "fc52bb93cc8a69bb4305072935717b69d85c89ed227671421d209e8e0f2b23f5",
+  "corrected_rows": 120,
+  "preserved_PISN_rows": 14,
+  "preserved_datasets": [
+    "AGB/M",
+    "AGB/Z",
+    "AGB/atomic_numbers",
+    "AGB/yield_names",
+    "AGB/yields",
+    "PopIII/M",
+    "PopIII/Z",
+    "PopIII/atomic_numbers",
+    "PopIII/yield_names",
+    "SN/M",
+    "SN/Z",
+    "SN/atomic_numbers",
+    "SN/yield_names",
+    "SN/yields",
+    "SN+Wind/M",
+    "SN+Wind/Z",
+    "SN+Wind/atomic_numbers",
+    "SN+Wind/yield_names",
+    "SN+Wind/yields",
+    "Wind/M",
+    "Wind/Z",
+    "Wind/atomic_numbers",
+    "Wind/yield_names",
+    "Wind/yields"
+  ],
+  "group_validation": {
+    "AGB": {
+      "rows": 80,
+      "mass_and_metals_close": true
+    },
+    "PopIII": {
+      "rows": 134,
+      "mass_and_metals_close": true
+    },
+    "SN": {
+      "rows": 117,
+      "mass_and_metals_close": true
+    },
+    "SN+Wind": {
+      "rows": 117,
+      "mass_and_metals_close": true
+    },
+    "Wind": {
+      "rows": 117,
+      "mass_and_metals_close": true
+    }
+  },
+  "max_source_isotope_budget_relative_error": 1.4915222390499139e-09,
+  "validation_scope": "HDF5 schema, source yields, unchanged data, and mass budgets; no full grid run"
+}
