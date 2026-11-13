@@ -1,0 +1,336 @@
+{
+  "source_directory": "/home/wispedia/AA/ufds/h277/aeos-v2-20261113-uvfix",
+  "initial_redshift": 70,
+  "files": [
+    {
+      "name": "GridDensity.0",
+      "bytes": 2101144,
+      "sha256": "7f3096887549295d97ff5c3eb3b10869777bcf9033f5e037cd67747739aad283"
+    },
+    {
+      "name": "GridDensity.1",
+      "bytes": 1152152,
+      "sha256": "aa6ac2b0ced16fb478921d501540448be623cd848edb8676f4ced6670ff8b0a0"
+    },
+    {
+      "name": "GridDensity.2",
+      "bytes": 2811032,
+      "sha256": "9950e818fbe6d26743541686caf4f190f5de281375a3220a77a9943b873a6e5c"
+    },
+    {
+      "name": "GridDensity.3",
+      "bytes": 9547928,
+      "sha256": "febb88572b0c12f700141dc35c29c4a52ad75e30ec732b2b81c429a4ec327955"
+    },
+    {
+      "name": "GridDensity.4",
+      "bytes": 45852312,
+      "sha256": "a89e0a27c150479240c7454a93d62cceeccc18083aaeb79544ffeae126355083"
+    },
+    {
+      "name": "GridDensity.5",
+      "bytes": 267919640,
+      "sha256": "de29e17079ba2f7873afbc18d1af93936d0ab81eb306cdf78cd6bb0e8eea769c"
+    },
+    {
+      "name": "GridVelocities_x.0",
+      "bytes": 2101144,
+      "sha256": "5013acc6c12246f6fc451a8bc91f3028bb8c23c71f0fbba5dc5b8eb0cc3866aa"
+    },
+    {
+      "name": "GridVelocities_x.1",
+      "bytes": 1152152,
+      "sha256": "9a46210f71f894dd57f838c59525ccaba6cf9b57d1defea4cc73cce6b04c2519"
+    },
+    {
+      "name": "GridVelocities_x.2",
+      "bytes": 2811032,
+      "sha256": "6a99e20bfbeccf16f442c8fcaa9bb0a36916b7435fbf4ffdd396841a042fd5ef"
+    },
+    {
+      "name": "GridVelocities_x.3",
+      "bytes": 9547928,
+      "sha256": "86d4906ababaf6b841ac28b82aa843ee286d9da16a7607416f58d1629d52d88c"
+    },
+    {
+      "name": "GridVelocities_x.4",
+      "bytes": 45852312,
+      "sha256": "8afc90ec73621194d38fc82ae036a8124330611fdf5b02c6f4ec665c8d78f7d7"
+    },
+    {
+      "name": "GridVelocities_x.5",
+      "bytes": 267919640,
+      "sha256": "78a144770951563a0e6295f754242194cd754d4109b284144bf00b2493509cba"
+    },
+    {
+      "name": "GridVelocities_y.0",
+      "bytes": 2101144,
+      "sha256": "461752b8c466308db224351ca76d080dd4ba729843b8b36a7c782b3f1cc77082"
+    },
+    {
+      "name": "GridVelocities_y.1",
+      "bytes": 1152152,
+      "sha256": "b2cbb08771056db641addc072b458245f43d7105cfbb7121fe753a9029cfebd9"
+    },
+    {
+      "name": "GridVelocities_y.2",
+      "bytes": 2811032,
+      "sha256": "a4a9b33974e5b3e50b27415968a88fc9259367a64b1904809b927a0d7740f7c9"
+    },
+    {
+      "name": "GridVelocities_y.3",
+      "bytes": 9547928,
+      "sha256": "dac0bcc407933767f2f2c6c3ad3bad554f5901dad8d5c1a6f7b584238a104a31"
+    },
+    {
+      "name": "GridVelocities_y.4",
+      "bytes": 45852312,
+      "sha256": "9e44270ae7174abc60c1df1055b8e2ad513615ba20686230847bbc86041137e8"
+    },
+    {
+      "name": "GridVelocities_y.5",
+      "bytes": 267919640,
+      "sha256": "f43be5f918123ac0a908ebcaef3e2de374ad5d989f94eb23d2a1ca89da9f43f3"
+    },
+    {
+      "name": "GridVelocities_z.0",
+      "bytes": 2101144,
+      "sha256": "f7505c6e6b3989db327dae1b5510c8e55dac48897218fb08067c6035a11665b7"
+    },
+    {
+      "name": "GridVelocities_z.1",
+      "bytes": 1152152,
+      "sha256": "d8b761fa014fa602044f3d7d39d6aae4605e0ac4a7e968bc9f10188350dbe15b"
+    },
+    {
+      "name": "GridVelocities_z.2",
+      "bytes": 2811032,
+      "sha256": "45ef64093366ef1a9069f3df2cdecdc68791b1bdeb6237fd697278cde8627ce6"
+    },
+    {
+      "name": "GridVelocities_z.3",
+      "bytes": 9547928,
+      "sha256": "aead51d997c0f0645a3e7a81d9da211178271628432e5b5e5294b749bffe5888"
+    },
+    {
+      "name": "GridVelocities_z.4",
+      "bytes": 45852312,
+      "sha256": "f1ff97d143862db0a91bde2a15b5f08f7c428c3f1918f2c81b03e1ddc6b18df9"
+    },
+    {
+      "name": "GridVelocities_z.5",
+      "bytes": 267919640,
+      "sha256": "06a5d531047bd55f097779313834908734d0d20c934af5000b9181a4db008026"
+    },
+    {
+      "name": "ParticleDisplacements_x.0",
+      "bytes": 2101144,
+      "sha256": "235edd00518eedb96ad6338d8ccba311940dd88bbb01e1bf53d25173f581e623"
+    },
+    {
+      "name": "ParticleDisplacements_x.1",
+      "bytes": 1152152,
+      "sha256": "36cab3a57e5a8ded1229b7e149f7f513e9e78861c2eb86327e9be8e1ad768e08"
+    },
+    {
+      "name": "ParticleDisplacements_x.2",
+      "bytes": 2811032,
+      "sha256": "cac064600644038ddbce204b3cce086c51d2e031d8222f086f7f9e9760327903"
+    },
+    {
+      "name": "ParticleDisplacements_x.3",
+      "bytes": 9547928,
+      "sha256": "1a22bb55df9421967a6a8516b0cf77964c36e325307402e730a9a18f6f9be9f4"
+    },
+    {
+      "name": "ParticleDisplacements_x.4",
+      "bytes": 45852312,
+      "sha256": "7e183a22e6f370d7220d19a4ae9c4cb934d332a0244eecbb718b23c9c360cea9"
+    },
+    {
+      "name": "ParticleDisplacements_x.5",
+      "bytes": 267919640,
+      "sha256": "8f45efcd15e0cf3a623b56db7f3f87ddab0c00b65547faeb9e8a9e8892a629a0"
+    },
+    {
+      "name": "ParticleDisplacements_y.0",
+      "bytes": 2101144,
+      "sha256": "7b2c0f183a8ceb1e04714c6ccdd50fd36ade3a76cb79fd51578c2d040939f782"
+    },
+    {
+      "name": "ParticleDisplacements_y.1",
+      "bytes": 1152152,
+      "sha256": "f283dc3f297393d24012ab1d3c3da25dc1cb3cd70327c09162ca6754acacc992"
+    },
+    {
+      "name": "ParticleDisplacements_y.2",
+      "bytes": 2811032,
+      "sha256": "026d9efbc7c661e5aa008f42eeb90aa648620bb3de8694257873baf4a3d1da79"
+    },
+    {
+      "name": "ParticleDisplacements_y.3",
+      "bytes": 9547928,
+      "sha256": "b74900b42a4cb88662760bb3acb18487ec129dc40bcadc2d781b0250bee06a29"
+    },
+    {
+      "name": "ParticleDisplacements_y.4",
+      "bytes": 45852312,
+      "sha256": "d604cb2b749c1f02a313d7a39876275197fd45cc5ef086fe5633769621453636"
+    },
+    {
+      "name": "ParticleDisplacements_y.5",
+      "bytes": 267919640,
+      "sha256": "d7e92d4b0a6323c938d0aa4f9c118cd5416ac6beeeed8d650bd4df84757e7062"
+    },
+    {
+      "name": "ParticleDisplacements_z.0",
+      "bytes": 2101144,
+      "sha256": "2c63814e64142be881fd45dd535ddd12704b51fb25175dfc488859237712c953"
+    },
+    {
+      "name": "ParticleDisplacements_z.1",
+      "bytes": 1152152,
+      "sha256": "7f9485183dce64a205b68aeaa8f723b95e012117f98bba24fcae9418d474353e"
+    },
+    {
+      "name": "ParticleDisplacements_z.2",
+      "bytes": 2811032,
+      "sha256": "43dd94eee8a3b172c3017adc40d305b2fc28164bc11c64eedb91a129f6582348"
+    },
+    {
+      "name": "ParticleDisplacements_z.3",
+      "bytes": 9547928,
+      "sha256": "f02019bf3a347c82e8e2a19f714fbe7829b1d2f1ad4827f3fdc407c7955c8eeb"
+    },
+    {
+      "name": "ParticleDisplacements_z.4",
+      "bytes": 45852312,
+      "sha256": "317eaff0f4195ebb30ccbe3dc7b3f8c9329b3fd58d8494e1c1041e4a002bc63e"
+    },
+    {
+      "name": "ParticleDisplacements_z.5",
+      "bytes": 267919640,
+      "sha256": "98b4087bd85b3274786c584a98583e174e93de2280e19b13cf93def24ce3a807"
+    },
+    {
+      "name": "ParticleVelocities_x.0",
+      "bytes": 2101144,
+      "sha256": "9fbc9a23d6c9a6cd4f290a5d726e7261c96792786341fab5cdde70c2dfe82775"
+    },
+    {
+      "name": "ParticleVelocities_x.1",
+      "bytes": 1152152,
+      "sha256": "f95314700852462de0425c45b4c92e8d2feaa5b4cd424847b986163c453a1469"
+    },
+    {
+      "name": "ParticleVelocities_x.2",
+      "bytes": 2811032,
+      "sha256": "65a9849a0d801a7593ed2def09b45ffbee4a26c793b56a6aaa8de38fe8546c9b"
+    },
+    {
+      "name": "ParticleVelocities_x.3",
+      "bytes": 9547928,
+      "sha256": "564e07b89717f593e34e5c6b5560c370c6733c4f455d1280681c17edd674c626"
+    },
+    {
+      "name": "ParticleVelocities_x.4",
+      "bytes": 45852312,
+      "sha256": "46595790cfa0c1c246e5ca42834c2314920ae8d3ffc2ec16dfdb1b0259c5036c"
+    },
+    {
+      "name": "ParticleVelocities_x.5",
+      "bytes": 267919640,
+      "sha256": "83ee1081820b0a1f59392b6500713c9092e0271ed0a012fbc7e1dd93457cc987"
+    },
+    {
+      "name": "ParticleVelocities_y.0",
+      "bytes": 2101144,
+      "sha256": "6e978728c7cea57753691ef64b912aaf70af19a9d33312c0ba97005da1b172e4"
+    },
+    {
+      "name": "ParticleVelocities_y.1",
+      "bytes": 1152152,
+      "sha256": "cf0a38bd3a2a29e46b84973cb2c1c57cfb77aba3200079454eb423b52324153f"
+    },
+    {
+      "name": "ParticleVelocities_y.2",
+      "bytes": 2811032,
+      "sha256": "91bc817055ef91581b1f2258e439e5f8889bf8ccabcaa40165496907990c3ea2"
+    },
+    {
+      "name": "ParticleVelocities_y.3",
+      "bytes": 9547928,
+      "sha256": "5ef989916d34504c656ffda0263bfbefa6ba7bd298271bd13b98e5bf87157efc"
+    },
+    {
+      "name": "ParticleVelocities_y.4",
+      "bytes": 45852312,
+      "sha256": "9e744ecc92dba5d36e539df52991818e80c021a79358d978a3cd06c26afaa804"
+    },
+    {
+      "name": "ParticleVelocities_y.5",
+      "bytes": 267919640,
+      "sha256": "e9442465d6652dcb5fd892feac7588ff49f8023cb7432b47c15c7f2bc2ab169f"
+    },
+    {
+      "name": "ParticleVelocities_z.0",
+      "bytes": 2101144,
+      "sha256": "ad61f031d0975bf57f3715343f58c404f05669825d9f56b038370027ef143395"
+    },
+    {
+      "name": "ParticleVelocities_z.1",
+      "bytes": 1152152,
+      "sha256": "e1b7626b97dcc63d4a8618decfe29e9c4eec2cdd5297f15d68b38b357d9f5416"
+    },
+    {
+      "name": "ParticleVelocities_z.2",
+      "bytes": 2811032,
+      "sha256": "a68bfc2e24d90437ed23f270ede76c8fdda13525e7113eefb91677684461a835"
+    },
+    {
+      "name": "ParticleVelocities_z.3",
+      "bytes": 9547928,
+      "sha256": "23b54e38d27f70153e8bc2e6533bfd81a98ed6a5131e8fc5d6d60a052d4823ad"
+    },
+    {
+      "name": "ParticleVelocities_z.4",
+      "bytes": 45852312,
+      "sha256": "a36d29861e06e4241df2067db840b246e73ffa5a542792932a0c34fec5a9e9cd"
+    },
+    {
+      "name": "ParticleVelocities_z.5",
+      "bytes": 267919640,
+      "sha256": "1f96f3e00d84e1e01123fe0cdd7a138eaec1a7ac31f505f39fac797ea6282388"
+    },
+    {
+      "name": "RefinementMask.0",
+      "bytes": 1052536,
+      "sha256": "f0224b8c9307fa2ee89bebce2c0d22a3ec80029d5a73333c9e0be253ece975f6"
+    },
+    {
+      "name": "RefinementMask.1",
+      "bytes": 578040,
+      "sha256": "25188df2c1007e486770bf9ca4b07c2a87983278995004cdb645d64b84c525aa"
+    },
+    {
+      "name": "RefinementMask.2",
+      "bytes": 1407480,
+      "sha256": "9fa68146783ab339380aa22fd8c3576b3d5d6c808ae97c9633eed56efb0f5884"
+    },
+    {
+      "name": "RefinementMask.3",
+      "bytes": 4775928,
+      "sha256": "97ef4543cce93e67b50827015b858478d314650b7cc8179d8e09f20799828108"
+    },
+    {
+      "name": "RefinementMask.4",
+      "bytes": 22928120,
+      "sha256": "aaf44ffd6c0607999482b6a084107010ca264d8147b9df8d09796816b7defc76"
+    },
+    {
+      "name": "RefinementMask.5",
+      "bytes": 133961784,
+      "sha256": "d705eaa9363baa85d58a32879771f134bf4666c92e6107ccea7a71c4ebea34f4"
+    }
+  ]
+}

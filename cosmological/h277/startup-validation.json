@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "job": "11647.happiness2-00",
+  "fresh_start_redshift": 70,
+  "initial_cycle": 0,
+  "grid_groups": 384,
+  "initial_field_min_max": {
+    "Density": [
+      0.06143013868994841,
+      1.0317921320349264
+    ],
+    "GasEnergy": [
+      3.5629114945413333e-07,
+      3.5629114945413333e-07
+    ],
+    "Temperature": [
+      139.45669124581846,
+      139.4566912458187
+    ],
+    "HI_Density": [
+      0.046677247798785605,
+      0.7839998093918029
+    ],
+    "HII_Density": [
+      9.613472261947213e-06,
+      0.0001614696833337309
+    ],
+    "HM_Density": [
+      7.943631195493052e-13,
+      1.3342271956547019e-11
+    ],
+    "H2I_Density": [
+      4.4132517709578125e-08,
+      7.412580454923435e-07
+    ],
+    "H2II_Density": [
+      1.1660270290985555e-15,
+      1.9584808695227776e-14
+    ],
+    "HeI_Density": [
+      0.01474323328558703,
+      0.2476301116883724
+    ],
+    "HeII_Density": [
+      5.897293314235048e-16,
+      9.905204467535293e-15
+    ],
+    "HeIII_Density": [
+      5.897293314235048e-19,
+      9.905204467535293e-18
+    ],
+    "Electron_Density": [
+      9.613471468314834e-06,
+      0.0001614696700037326
+    ]
+  },
+  "max_absolute_hydrogen_mass_fraction_error": 4.440892098500626e-16,
+  "Grackle_runtime": {
+    "CC": "/opt/rh/gcc-toolset-13/root/usr/bin/cc",
+    "FC": "/usr/bin/gfortran",
+    "LD": "/usr/bin/ld",
+    "use_grackle": "1",
+    "with_radiative_cooling": "1",
+    "primordial_chemistry": "2",
+    "dust_chemistry": "5",
+    "metal_cooling": "1",
+    "UVbackground": "1",
+    "grackle_data_file": "CloudyData_HM2012_highz_shielded.h5",
+    "cmb_temperature_floor": "1",
+    "Gamma": "1.6667",
+    "h2_on_dust": "1",
+    "use_dust_density_field": "0",
+    "dust_recombination_cooling": "1",
+    "photoelectric_heating": "0",
+    "photoelectric_heating_rate": "8.5e-26",
+    "use_isrf_field": "0",
+    "interstellar_radiation_field": "1.7",
+    "use_volumetric_heating_rate": "1",
+    "use_specific_heating_rate": "0",
+    "use_temperature_floor": "0",
+    "temperature_floor_scalar": "0",
+    "three_body_rate": "4",
+    "cie_cooling": "0",
+    "h2_optical_depth_approximation": "0",
+    "ih2co": "1",
+    "ipiht": "1",
+    "HydrogenFractionByMass": "0.76",
+    "DeuteriumToHydrogenRatio": "6.8e-05",
+    "SolarMetalFractionByMass": "0.01295",
+    "local_dust_to_gas_ratio": "0.009387",
+    "CaseBRecombination": "0",
+    "NumberOfTemperatureBins": "600",
+    "TemperatureStart": "1",
+    "TemperatureEnd": "1e+09",
+    "NumberOfDustTemperatureBins": "250",
+    "DustTemperatureStart": "1",
+    "DustTemperatureEnd": "1500",
+    "Compton_xray_heating": "0",
+    "LWbackground_sawtooth_suppression": "0",
+    "LWbackground_intensity": "0",
+    "UVbackground_redshift_on": "50",
+    "UVbackground_redshift_off": "0",
+    "UVbackground_redshift_fullon": "50",
+    "UVbackground_redshift_drop": "0",
+    "cloudy_electron_fraction_factor": "0.00915396",
+    "use_radiative_transfer": "1",
+    "radiative_transfer_coupled_rate_solver": "0",
+    "radiative_transfer_intermediate_step": "0",
+    "radiative_transfer_hydrogen_only": "0",
+    "self_shielding_method": "3",
+    "H2_self_shielding": "1",
+    "H2_custom_shielding": "0",
+    "h2_charge_exchange_rate": "1",
+    "h2_dust_rate": "1",
+    "h2_h_cooling_rate": "1",
+    "collisional_excitation_rates": "1",
+    "collisional_ionisation_rates": "1",
+    "recombination_cooling_rates": "1",
+    "bremsstrahlung_cooling_rates": "1",
+    "max_iterations": "10000",
+    "exit_after_iterations_exceeded": "0",
+    "omp_nthreads": "0"
+  },
+  "linked_library": "/home/wispedia/AA/ufds/h277/aeos-v2-20261113-uvfix/lib/libgrackle-3.4.2-dev.so"
+}

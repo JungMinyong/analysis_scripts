@@ -1,0 +1,32 @@
+#!/bin/bash
+#PBS -N h277-v2-uvfix
+#PBS -q workq
+#PBS -l nodes=node01:ppn=64
+#PBS -l walltime=120:00:00
+#PBS -j oe
+#PBS -m n
+set -eo pipefail
+source /etc/profile
+module purge
+module load intel21/compiler-21 intel21/intelmpi-21 intel21/hdf5-1.10.5
+set -u
+cd /home/wispedia/AA/ufds/h277/aeos-v2-20261113-uvfix
+exec 9>.job.lock
+flock -n 9
+test ! -f started.txt
+test "$(hostname -s)" = node01
+test "$(wc -l < "$PBS_NODEFILE")" -eq 64
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+export I_MPI_FABRICS=shm I_MPI_HYDRA_BOOTSTRAP=fork I_MPI_PIN=1
+export LD_LIBRARY_PATH="$PWD/lib:${LD_LIBRARY_PATH:-}"
+ulimit -s unlimited
+ulimit -c 0
+sha256sum -c assets.sha256 > asset-validation.txt
+ldd ./enzo.exe > linked-libraries.txt
+if grep -q 'not found' linked-libraries.txt; then exit 1; fi
+grep -Fq "$PWD/lib/libgrackle-3.4.2-dev.so" linked-libraries.txt
+date -Is > started.txt
+trap 'code=$?; echo "$code" > exit-code.txt; date -Is > finished.txt' EXIT
+# No -r: start a new cosmological hierarchy from the original z=70 ICs.
+mpiexec -np 64 ./enzo.exe -d parameter_file.txt > stdout 2> stderr
+/home/wispedia/.conda/envs/yt_env/bin/python provenance/check_completion.py > validation.log 2>&1
